@@ -16,7 +16,7 @@
                 <td>{{i.id}}</td>
                 <td>{{i.name}}</td>
                 <td><a class="btn btn-primary" href="{% url 'cv:view' i.id %}">view</a></td>
-                <td><a class="btn btn-primary" href="#">edit</a></td>
+                <td><a class="btn btn-primary" href="{% url 'cv:edit_profile' i.id %}">edit</a></td>
                 <td><a class="btn btn-primary" href="{% url 'cv:resume' i.id %}">downlaod</a></td>
                 <td><a class="btn btn-primary" href="{% url 'cv:delete' i.id %}">Delete</a></td>
               </tr>

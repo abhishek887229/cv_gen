@@ -6,7 +6,7 @@ from django.template import loader
 from .models import profile  # Adjusted model name to follow Python conventions
 import pdfkit
 import io
-
+from .forms import ProfileForm
 
 def home(request):
     return render(request,'pdf/home.html')
@@ -88,3 +88,20 @@ def delete_data(request,id):
 def view_cv(request, id):
     view_data = get_object_or_404(profile, pk=id)  # Use get_object_or_404 to handle the case when the object is not found
     return render(request, 'pdf/view_cv.html', {'view': [view_data]})
+
+
+
+
+def edit_profile(request,id):
+    user_profile=get_object_or_404(profile,pk=id)
+
+    if request.method=='POST':
+        form=ProfileForm(request.POST,instance=user_profile)
+        if form.is_valid():
+            form.save()
+            return redirect("cv:data_list")
+    else:
+        form=ProfileForm(instance=user_profile)
+
+    return render(request, 'pdf/edit_profile.html', {'form':form,'user_profile':user_profile})
+    
