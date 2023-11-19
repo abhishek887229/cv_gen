@@ -17,7 +17,7 @@ def accept(request):
         name = request.POST.get("Name", "")
         email = request.POST.get("Email", "")
         phone = request.POST.get("Phone", "")
-        summary = request.POST.get("Summary", "")
+        summary = request.POST.get("Summary", "Effective communication and collaboration are at the core of my professional approach. I thrive in dynamic, fast-paced environments and am adept at adapting to evolving challenges. A natural problem-solver, I am confident in my ability to contribute positively to any team or project.")
         degree = request.POST.get("Degree", "")
         school = request.POST.get("School", "")
         university = request.POST.get("University", "")

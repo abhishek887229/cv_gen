@@ -1,6 +1,26 @@
 {% extends "pdf/base_base.html" %}
 {%block cv%}
     <div class="container m-5">
-       <h2>{{user_profile.name}}</h2>
+        <div class="text-center">
+            <h1>{{ user_profile.name }}</h1>
+            <p>email :- {{user_profile.email}} | phone :- {{user_profile.phone}}</p>
+            <hr>
+            <h3><u>Profile</u></h3>
+            <p>{{user_profile.summary}}</p>
+            <br>
+            <h3><u>Education</u></h3>
+            <p>{{user_profile.school}}</p>
+            <p>{{user_profile.degree}}</p>
+            <p>{{user_profile.university}}</p>
+            <br>
+            <h3><u>Work Experience</u></h3>
+            <p>{{user_profile.previous_work}}</p>
+            <br>
+            <h3><u>Skills</u></h3>
+            <p>{{user_profile.skills}}</p>
+            <br>
+            
+            
+        </div>
     </div>
 {%endblock%}

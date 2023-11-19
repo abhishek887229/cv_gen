@@ -10,43 +10,48 @@
         </div>
         <form method="POST" action="">
             {%csrf_token%}
-        <div class="form-group">
-          <label for="formGroupExampleInput">Name</label>
-          <input type="text" class="form-control"  id="Name"  name="Name" placeholder="Your_name" required>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label for="formGroupExampleInput">Name</label>
+                    <input type="text" class="form-control"  id="Name"  name="Name" placeholder="Your_name" required>
+                    </div>
+                    <div class="form-group">
+                    <label for="formGroupExampleInput2">Email</label>
+                    <input type="email" class="form-control" id="Email" name="Email" placeholder="Email to get the mail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Phone</label>
+                        <input type="text" class="form-control"  id="Phone"  name="Phone" placeholder="Phone to get the call" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Summary</label>
+                        <input type="text" class="form-control"  id="Summary"  name="Summary" placeholder="Explain about yourself">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Degree</label>
+                        <input type="text" class="form-control"  id="Degree"  name="Degree" placeholder="your Degree " required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">School</label>
+                        <input type="text" class="form-control"  id="School"  name="School" placeholder="School" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">University</label>
+                        <input type="text" class="form-control"  id="University"  name="University" placeholder="University" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Previous_work</label>
+                        <input type="text" class="form-control"  id="Previous_work"  name="Previous_work" placeholder="Your previous work experience">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Skills</label>
+                        <input type="text" class="form-control"  id="Skills"  name="Skills" placeholder="Enter your Skills" required>
+                    </div>
+                </div>
         </div>
-        <div class="form-group">
-          <label for="formGroupExampleInput2">Email</label>
-          <input type="email" class="form-control" id="Email" name="Email" placeholder="Email to get the mail" required>
-        </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput">Phone</label>
-            <input type="text" class="form-control"  id="Phone"  name="Phone" placeholder="Phone to get the call" required>
-        </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput">Summary</label>
-            <input type="text" class="form-control"  id="Summary"  name="Summary" placeholder="Explain about yourself" required>
-        </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput">Degree</label>
-            <input type="text" class="form-control"  id="Degree"  name="Degree" placeholder="your Degree " required>
-        </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput">School</label>
-            <input type="text" class="form-control"  id="School"  name="School" placeholder="School" required>
-        </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput">University</label>
-            <input type="text" class="form-control"  id="University"  name="University" placeholder="University" required>
-        </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput">Previous_work</label>
-            <input type="text" class="form-control"  id="Previous_work"  name="Previous_work" placeholder="Your previous work experience">
-        </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput">Skills</label>
-            <input type="text" class="form-control"  id="Skills"  name="Skills" placeholder="Enter your Skills" required>
-          </div>
-
           <button type="submit" class="btn btn-primary">Submit</button>
       </form>
    

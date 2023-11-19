@@ -3,11 +3,27 @@
 {% extends "pdf/base_base.html" %}
 
 {% block cv %}
-    <div class="row">
         {% for i in view %}
-            <div class="col">
+            <div class="text-center">
                 <h1>{{ i.name }}</h1>
+                <p>email :- {{i.email}} | phone :- {{i.phone}}</p>
+                <hr>
+                <h3><u>Profile</u></h3>
+                <p>{{i.summary}}</p>
+                <br>
+                <h3><u>Education</u></h3>
+                <p>{{i.school}}</p>
+                <p>{{i.degree}}</p>
+                <p>{{i.university}}</p>
+                <br>
+                <h3><u>Work Experience</u></h3>
+                <p>{{i.previous_work}}</p>
+                <br>
+                <h3><u>Skills</u></h3>
+                <p>{{i.skills}}</p>
+                <br>
+                
+                
             </div>
         {% endfor %}
-    </div>
 {% endblock %}
