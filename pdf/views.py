@@ -56,3 +56,10 @@ def resume(request, id):
     response['Content-Disposition'] = 'attachment; filename="resume.pdf"'  # Fix this line
 
     return response
+
+
+def get_list(request):
+
+    list=profile.objects.all()
+
+    return render(request,'pdf/all_list.html',{'all_data':list})
