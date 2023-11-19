@@ -5,7 +5,7 @@ from django.db import models
 class profile(models.Model):
     
     def __str__(self):
-        return self.name
+        return self.name,self.id
 
     name=models.CharField(max_length=200)
     email=models.CharField(max_length=200)
