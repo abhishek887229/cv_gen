@@ -1,5 +1,5 @@
 from django import forms
-from .models import profile
+from .models import profile,Skill,EducationDetail
 
 class ProfileForm(forms.ModelForm):
     class Meta:
@@ -16,3 +16,12 @@ class ProfileForm(forms.ModelForm):
             'skills': forms.TextInput(attrs={'class': 'form-control'}),
             'summary': forms.Textarea(attrs={'class': 'form-control'}),
         }
+
+
+class SkillForm(forms.ModelForm):
+    class Meta:
+        model=Skill
+        fields=['skill_name']
+        widgets = {
+            'skill_name': forms.TextInput(attrs={'class': 'form-control'}),
+            }

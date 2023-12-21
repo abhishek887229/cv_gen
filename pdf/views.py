@@ -7,10 +7,14 @@ from .models import profile  # Adjusted model name to follow Python conventions
 import pdfkit
 import io
 from .forms import ProfileForm
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     return render(request,'pdf/home.html')
 
+@login_required
 def accept(request):
     if request.method == 'POST':
         # Retrieve form data using request.POST.get()
@@ -41,6 +45,9 @@ def accept(request):
         profile_instance.save()
 
     # Render the form template after processing the POST request
+    else:
+        return render(request, 'pdf/base.html')
+    
     return render(request, 'pdf/base.html')
 
 #we get a specific user id and convert the webpage into the pdf so user can downlaod it as required.
@@ -49,7 +56,6 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import profile  # Import your 'profile' model
 import pdfkit
-
 def resume(request, id):
     user_profile = profile.objects.get(pk=id)
     template = loader.get_template('pdf/get_cv.html')
@@ -71,7 +77,7 @@ def resume(request, id):
     return response
 
 
-
+@login_required
 def get_list(request):
 
     list=profile.objects.all()
@@ -104,4 +110,24 @@ def edit_profile(request,id):
         form=ProfileForm(instance=user_profile)
 
     return render(request, 'pdf/edit_profile.html', {'form':form,'user_profile':user_profile})
+    
+
+
+
+
+def Register(request):
+
+    if request.method=="POST":
+
+        form=UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('cv:home')
+
+    else:
+        form=UserCreationForm()
+    return render(request,'pdf/signup.html',{'form':form})
+
+
+
     
