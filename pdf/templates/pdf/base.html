@@ -1,59 +1,107 @@
 {% extends "pdf/base_base.html" %}
 {%block cv%}
+<form method="POST" action="">
+    {%csrf_token%}
         <div class="row">
-            <div class="col-md-10   ">
+            <div class="col-md-8   ">
                 <h1>CV Generator</h1>
             </div>
             <div class="col-md-2">
                 <a href="{% url 'cv:data_list'%}" class="btn btn-primary">go to list</a>
+                
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-info">Submit</button>
             </div>
         </div>
-        <form method="POST" action="">
-            {%csrf_token%}
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
+        
+   
+      <div id="accordion">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                General info
+              </button>
+            </h5>
+          </div>
+      
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <div class="form-group">
                     <label for="formGroupExampleInput">Name</label>
-                    <input type="text" class="form-control"  id="Name"  name="Name" placeholder="Your_name" required>
+                    <input type="text" class="form-control"  id="Name"  name="Name" placeholder="John Doe" required>
                     </div>
                     <div class="form-group">
                     <label for="formGroupExampleInput2">Email</label>
-                    <input type="email" class="form-control" id="Email" name="Email" placeholder="Email to get the mail" required>
+                    <input type="email" class="form-control" id="Email" name="Email" placeholder=" eg :- xyz@gmail.com" required>
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Phone</label>
-                        <input type="text" class="form-control"  id="Phone"  name="Phone" placeholder="Phone to get the call" required>
+                        <input type="text" class="form-control"  id="Phone"  name="Phone" placeholder="+91 123..." required>
                     </div>
-                    
                     <div class="form-group">
-                        <label for="formGroupExampleInput">Degree</label>
-                        <input type="text" class="form-control"  id="Degree"  name="Degree" placeholder="your Degree " required>
+                        <label for="formGroupExampleInput">Social Media Link</label>
+                        <input type="text" class="form-control"  id="Phone"  name="Phone" placeholder="github/linkedin">
                     </div>
+
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Summary</label>
+                    <input type="text" class="form-control"  id="Summary"  name="Summary" placeholder="Explain about yourself">
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">School</label>
-                        <input type="text" class="form-control"  id="School"  name="School" placeholder="School" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">University</label>
-                        <input type="text" class="form-control"  id="University"  name="University" placeholder="University" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">Previous_work</label>
-                        <input type="text" class="form-control"  id="Previous_work"  name="Previous_work" placeholder="Your previous work experience">
-                    </div>
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">Skills</label>
-                        <input type="text" class="form-control"  id="Skills"  name="Skills" placeholder="Enter your Skills" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">Summary</label>
-                        <input type="text" class="form-control"  id="Summary"  name="Summary" placeholder="Explain about yourself">
-                    </div>
-                </div>
+            </div>
+          </div>
         </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-   
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Education
+              </button>
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Education detail 1</label>
+                    <input type="text" class="form-control"  id="School"  name="School" placeholder="School" required>
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Education detail 2</label>
+                    <input type="text" class="form-control"  id="University"  name="University" placeholder="University" required>
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Education detail 3</label>
+                    <input type="text" class="form-control"  id="Degree"  name="Degree" placeholder="your Degree " required>
+                </div>
+ 
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Add education Details
+              </button>
+            </h5>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Previous_work</label>
+                    <input type="text" class="form-control"  id="Previous_work"  name="Previous_work" placeholder="Your previous work experience">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Skills</label>
+                    <input type="text" class="form-control"  id="Skills"  name="Skills" placeholder="Enter your Skills" required>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </form>
+</div>
 {% endblock %}
